@@ -17,7 +17,7 @@
     </div>
     
     <div class="container bg-light rounded margen">
-        <form class="p-3" action="./check.php" method="post">
+        <form class="p-3" action="check.php" method="post">
             <div class="mb-3">
                 <label for="exampleUsername" class="form-label">Username</label>
                 <input type="text" class="form-control" id="exampleUsername" aria-describedby="userHelp" name="user">

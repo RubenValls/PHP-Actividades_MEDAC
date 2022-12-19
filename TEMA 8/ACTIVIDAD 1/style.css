@@ -1,0 +1,40 @@
+body{
+    background-color: rgb(203, 203, 203);
+    color: black;
+    margin: 0;
+}
+
+#title{
+    text-align: center;
+    background-color: black;
+    color: white;
+    padding: 1em;
+}
+
+#container{
+    margin-top: 1em;
+    text-align: center;
+}
+
+.eachName{
+    padding: 1em;
+    font-weight: bold;
+}
+
+.eachFlag{
+    border: 1px solid black;
+    margin: 1em;
+}
+
+.eachFlag:hover{
+    border: 1px solid red;
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: 1s;
+}
+
+.eachFlag:not(:hover){
+    border: 1px solid black;
+    transform: scale(1);
+    transition: 1s;
+}

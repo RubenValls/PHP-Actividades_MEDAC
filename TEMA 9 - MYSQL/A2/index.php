@@ -25,7 +25,7 @@
         $conn->query($sql);
 
         $conn->commit();
-        print '<h1>Changes apllied</h1>';
+        print '<h1>Changes applied</h1>';
     }catch (Exception $e){
         $conn->rollback();
         print '<h1>Changes not apllied</h1>';

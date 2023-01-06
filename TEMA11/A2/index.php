@@ -32,7 +32,7 @@
         print "<p>The division result is: $result.</p>";
         print "<br>";
 
-        $result = $client->root($num1, $num2);
+        $result = $client->root($num1);
         print "<p>The square root's first number is: $result.</p>";
         print "<br>";
 

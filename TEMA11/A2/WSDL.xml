@@ -1,0 +1,144 @@
+<!--  
+GuessTheNumber
+2023-01-06
+basic operations
+
+Online WSDL 1.1 SOAP generator 0.2
+Julien Blitte
+  -->
+<definitions xmlns:tns="localhost.wsdl"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:xsd1="localhost.xsd"
+	xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns="http://schemas.xmlsoap.org/wsdl/" name="basic operations" targetNamespace="localhost.wsdl">
+	<!--  definition of datatypes  -->
+	<types>
+		<schema xmlns="http://www.w3.org/2000/10/XMLSchema" targetNamespace="localhost.xsd">
+			<element name="num1">
+				<complexType>
+					<all>
+						<element name="value" type="int"/>
+					</all>
+				</complexType>
+			</element>
+			<element name="num2">
+				<complexType>
+					<all>
+						<element name="value" type="int"/>
+					</all>
+				</complexType>
+			</element>
+			<element name="result">
+				<complexType>
+					<all>
+						<element name="value" type="float"/>
+					</all>
+				</complexType>
+			</element>
+		</schema>
+	</types>
+	<!--  response messages  -->
+	<message name="returns_result">
+		<part name="result" type="xsd:result"/>
+	</message>
+	<!--  request messages  -->
+	<message name="plus">
+		<part name="num1" type="xsd:num1"/>
+		<part name="num2" type="xsd:num2"/>
+	</message>
+	<message name="subs">
+		<part name="num1" type="xsd:num1"/>
+		<part name="num2" type="xsd:num2"/>
+	</message>
+	<message name="divide">
+		<part name="num1" type="xsd:num1"/>
+		<part name="num2" type="xsd:num2"/>
+	</message>
+	<message name="root">
+		<part name="num1" type="xsd:num1"/>
+	</message>
+	<message name="power">
+		<part name="num1" type="xsd:num1"/>
+		<part name="num2" type="xsd:num2"/>
+	</message>
+	<!--  server's services  -->
+	<portType name="calculatorService">
+		<operation name="plus">
+			<input message="tns:plus"/>
+			<output message="tns:returns_result"/>
+		</operation>
+		<operation name="subs">
+			<input message="tns:subs"/>
+			<output message="tns:returns_result"/>
+		</operation>
+		<operation name="divide">
+			<input message="tns:divide"/>
+			<output message="tns:returns_result"/>
+		</operation>
+		<operation name="root">
+			<input message="tns:root"/>
+			<output message="tns:returns_result"/>
+		</operation>
+		<operation name="power">
+			<input message="tns:power"/>
+			<output message="tns:returns_result"/>
+		</operation>
+	</portType>
+	<!--  server encoding  -->
+	<binding name="calculatorService_webservices" type="tns:calculatorService">
+		<soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="plus">
+			<soap:operation soapAction="urn:xmethods-delayed-quotes#plus"/>
+			<input>
+				<soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+			</input>
+			<output>
+				<soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+			</output>
+		</operation>
+		<operation name="subs">
+			<soap:operation soapAction="urn:xmethods-delayed-quotes#subs"/>
+			<input>
+				<soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+			</input>
+			<output>
+				<soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+			</output>
+		</operation>
+		<operation name="divide">
+			<soap:operation soapAction="urn:xmethods-delayed-quotes#divide"/>
+			<input>
+				<soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+			</input>
+			<output>
+				<soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+			</output>
+		</operation>
+		<operation name="root">
+			<soap:operation soapAction="urn:xmethods-delayed-quotes#root"/>
+			<input>
+				<soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+			</input>
+			<output>
+				<soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+			</output>
+		</operation>
+		<operation name="power">
+			<soap:operation soapAction="urn:xmethods-delayed-quotes#power"/>
+			<input>
+				<soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+			</input>
+			<output>
+				<soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+			</output>
+		</operation>
+	</binding>
+	<!--  access to service provider  -->
+	<service name="RubenValls">
+		<port name="RubenValls_0" binding="calculatorService_webservices">
+			<soap:address location="http://localhost/test/SOAP/calculatorService.php"/>
+		</port>
+	</service>
+</definitions>

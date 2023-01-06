@@ -1,0 +1,25 @@
+-- PETICIÓN --
+
+<env:Envelope xmlns:env=“http://www.w3.org/2003/05/soap-
+envelope" 
+xmlns:ns1=“http://localhost/directorio/fichero.php”> 
+<env:Header/> 
+	<env:Body> 
+		<ns1:getRainProb>
+			<city>Name</city>
+		</ns1:getRainProb>
+	</env:Body> 
+</env:Envelope> 
+
+-- RESPUESTA --
+
+<env:Envelope xmlns:env=“http://www.w3.org/2003/05/soap-
+envelope" 
+xmlns:ns1=“http://localhost/directorio/fichero.php”> 
+<env:Header/> 
+	<env:Body> 
+		<ns1:getRainProbResponse>
+			<return>xsi:type=“xsd:string”>XX%</return>
+		</ns1:getRainProbResponse>
+	</env:Body> 
+</env:Envelope> 

@@ -15,13 +15,15 @@ connection.connect(function(err) {
 });
 
 let info = [];
+let count = 1;
 let query = 'SELECT titulo, año_entrada, cantidad_disponible FROM biblioteca WHERE año_entrada > 2019'
 connection.query(query, function (error, results, fields) {
     if (error)
         throw error;
 
     results.forEach(result => {
-        info.push([result.titulo, result.año_entrada, result.cantidad_disponible, " <br> "]);
+        info.push([`<h3>Book number ${count}</h3><h4>Title: ${result.titulo}</h4>` + `<h4>Year: ${result.año_entrada}</h4>` +`<h4>Available: ${result.cantidad_disponible}</h4><br>`]);
+        count++;
     });
 });
 
@@ -30,7 +32,7 @@ const app = express();
 const port = 3000;
 
 app.get('/', (req, res) => {
-    res.send(`<h3 style="text-align: center">Query: ${query} and Info: <hr> ${info}</h3>`)
+    res.send(`<h3 style="text-align: center">Query: ${query} and Info:</h3><hr><div style="text-align: center">${info}</div>`)
 })
 
 app.listen(port, () => {
